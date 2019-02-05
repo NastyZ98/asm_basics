@@ -2,6 +2,7 @@ section .text
     global get42
     global my_strlen
     global my_putstr
+    global my_strcmp
 
 get42:
     push rbp
@@ -48,3 +49,30 @@ my_putstr:
     end_my_putstr:
     leave
     ret
+
+my_strcmp:
+    push rbp
+    mov rbp, rsp
+    mov rax, 0
+
+    start_my_strcmp:
+    mov r9b, byte [rdi]
+    cmp r9b, byte [rsi]
+
+    jne end_my_strcmp
+    
+    check_null:
+    cmp byte [rdi], 0
+
+    je end_my_strcmp
+    add rdi, 1
+    add rsi, 1
+    jmp start_my_strcmp
+
+    end_my_strcmp:
+    mov r8b, byte [rdi]
+    sub r8b, byte [rsi]
+    mov al, r8b
+    leave
+    ret
+

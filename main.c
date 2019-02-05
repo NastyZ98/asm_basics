@@ -42,7 +42,7 @@ static void test_putstr(void)
     my_putstr("hello world !");
     printf("\"\n");
 }
-/*
+
 static void test_strcmp(void)
 {
     puts("==========");
@@ -61,7 +61,7 @@ static void test_strcmp(void)
         printf("excepted %d - got %d\n", strcmp(s1, s2), my_strcmp(s1, s2));
     }
 }
-
+/*
 static void test_strcpy(void)
 {
     puts("==========");
@@ -134,8 +134,8 @@ int main()
 {
     test_get42();
     test_strlen();
-    test_putstr();/*
-    test_strcmp();
+    test_putstr();
+    test_strcmp();/*
     test_strcpy();
     test_strcat();
     test_caller();
